@@ -1,9 +1,16 @@
-import './App.css';
+import {BrowserRouter as Router} from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
-  return (
-    <p>test</p>
-  );
+    return (
+        <Router>
+            <div className='container'>
+                <center>
+                    <Header title='Witaj w ZSK'/>
+                </center>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
