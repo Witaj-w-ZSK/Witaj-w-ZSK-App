@@ -1,5 +1,6 @@
 import {BrowserRouter as Router} from "react-router-dom";
 import Header from "./components/Header";
+import Box from "./components/Box";
 
 function App() {
     return (
@@ -7,6 +8,7 @@ function App() {
             <div className='container'>
                 <center>
                     <Header title='Witaj w ZSK'/>
+                    <Box />
                 </center>
             </div>
         </Router>
