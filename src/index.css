@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: #eabf87;
 }
 
@@ -49,6 +49,44 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+}
+
+.NewCardForm {
+    width: 40%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: bottom;
+    color: white;
+}
+
+.NewCardForm #personName,
+.NewCardForm #personQuote {
+    padding: 10px;
+    margin: 10px;
+}
+
+.NewCardForm #personName {
+    /* width: 60%; */
+    padding: 10px;
+}
+
+.NewCardForm #personQuote {
+    /* width: 100%; */
+    padding: 10px;
+}
+.input-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+#newCardSubmit {
+    align-self: flex-end;
+}
+input[type="submit"] {
+    width: 150px;
+    height: 40px;
 }
