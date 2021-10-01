@@ -2,8 +2,10 @@ import NewCardForm from "./NewCardForm";
 
 const AdminPanel = () => {
     return (
-        <div class="AdminPanel">
-            <NewCardForm />
+        <div className="AdminPanel">
+            <div className="form-holder">
+                <NewCardForm />
+            </div>
         </div>
     );
 };
