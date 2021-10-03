@@ -1,84 +1,90 @@
+import Card from "./Card";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NewCardForm = () => {
-    const { register, handleSubmit } = useForm();
-    const { selectedImage, setSelectedImage } = useState();
-    const onSubmit = (data) => console.log(data);
-    const { test, setTest } = useState("duppapp");
-    const imageChange = (event) => {
-        console.log("image change");
-        if (event.target.files && event.target.files.length > 0) {
-            setSelectedImage(event.target.files[0]);
-        }
-    };
+    //get all threads on render
+    // useEffect(() => {
+    //     let fs = require("fs");
+    //     let threads = fs.readdirSync(`${process.env.PUBLIC_URL}/threads`);
+    //     console.log(threads);
+    // }, []);
 
-    const removeSelectedImage = () => {
-        setSelectedImage();
-    };
+    const { register, handleSubmit, getValues, watch } = useForm();
+    const [selectedImage, setSelectedImage] = useState();
+    const onSubmit = (data) => console.log(data);
+    const watchPerson = watch("person");
+    const watchQuote = watch("quote");
+    const watchImage = watch("image", []);
 
     return (
-        <form className="NewCardForm" onSubmit={handleSubmit(onSubmit)}>
-            <h1>{test}</h1>
-            <p className="input-holder">
-                <label htmlFor="personName" value="ddd">
-                    Imie i nazwisko:
-                </label>
-                <input
-                    type="text"
-                    name="personName"
-                    id="personName"
-                    {...register("personName", { required: true, max: 25 })}
-                />
-            </p>
-            <p className="input-holder">
-                <label htmlFor="person">Kwestia:</label>
-                <textarea
-                    type="textarea"
-                    name="personQuote"
-                    id="personQuote"
-                    rows="3"
-                    {...register("personQuote", {
-                        required: true,
-                        max: 100,
-                    })}
-                />
-            </p>
-            <p className="input-holder">
-                <label htmlFor="image">Obraz:</label>
-                <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    accept=".png,.jpg,.jpeg,.svg"
-                    onChange={() => console.log("dddd")}
-                    {...register("image", {
-                        required: true,
-                        validate: (files) => {
-                            return files.length === 1;
-                        },
-                    })}
-                />
-                {selectedImage && (
-                    <div className="image-holder">
-                        oooooo
-                        <img
-                            src={URL.createOnjectURL(selectedImage)}
-                            alt="imagePreviev"
+        <>
+            <div className="form-holder">
+                <form className="NewCardForm" onSubmit={handleSubmit(onSubmit)}>
+                    <h1>Dodaj kartę:</h1>
+                    <p className="input-holder">
+                        <label htmlFor="person" value="ddd">
+                            Imie i nazwisko:
+                        </label>
+                        <input
+                            type="text"
+                            name="person"
+                            id="person"
+                            {...register("person", {
+                                required: true,
+                                max: 25,
+                            })}
                         />
-                    </div>
-                )}
-            </p>
-            <p className="input-holder">
-                <input
-                    type="submit"
-                    name="submit"
-                    id="newCardSubmit"
-                    className="submit"
-                    value="Zatwierdź"
-                />
-            </p>
-        </form>
+                    </p>
+                    <p className="input-holder">
+                        <label htmlFor="quote">Kwestia:</label>
+                        <textarea
+                            type="textarea"
+                            name="quote"
+                            id="quote"
+                            rows="3"
+                            {...register("quote", {
+                                required: true,
+                                max: 100,
+                            })}
+                        />
+                    </p>
+                    <p className="input-holder">
+                        <label htmlFor="image">Obraz:</label>
+                        <input
+                            type="file"
+                            name="image"
+                            id="image"
+                            accept="image"
+                            {...register("image", {
+                                required: true,
+                                validate: (files) => {
+                                    return files.length === 1;
+                                },
+                            })}
+                        />
+                    </p>
+                    <p className="input-holder">
+                        <input
+                            type="submit"
+                            name="submit"
+                            id="newCardSubmit"
+                            className="submit"
+                            value="Zatwierdź"
+                        />
+                    </p>
+                </form>
+            </div>
+            <Card
+                person={watchPerson ? watchPerson : "[Wstaw imię]"}
+                quote={watchQuote ? watchQuote : "[Wstaw kwestię]"}
+                image={
+                    watchImage.length
+                        ? URL.createObjectURL(watchImage[0])
+                        : `${process.env.PUBLIC_URL}/images/uczen_ZSK.png`
+                }
+            />
+        </>
     );
 };
 
