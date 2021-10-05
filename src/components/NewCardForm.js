@@ -10,7 +10,14 @@ const NewCardForm = () => {
     //     console.log(threads);
     // }, []);
 
-    const { register, handleSubmit, getValues, watch } = useForm();
+    const { register, handleSubmit, getValues, watch } = useForm({
+        defaultValues: {
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0,
+        },
+    });
     const [selectedImage, setSelectedImage] = useState();
     const onSubmit = (data) => console.log(data);
     const watchPerson = watch("person");
@@ -64,6 +71,56 @@ const NewCardForm = () => {
                             })}
                         />
                     </p>
+                    <div className="statistics-input-holder">
+                        <p className="input-holder">
+                            <label htmlFor="a">aaa</label>
+                            <input
+                                type="number"
+                                step="0.05"
+                                max="0.1"
+                                min="-0.1"
+                                name=""
+                                id=""
+                                {...register("a", { required: true })}
+                            />
+                        </p>
+                        <p className="input-holder">
+                            <label htmlFor="b">bbbb</label>
+                            <input
+                                type="number"
+                                step="0.05"
+                                max="0.1"
+                                min="-0.1"
+                                name=""
+                                id=""
+                                {...register("b", { required: true })}
+                            />
+                        </p>
+                        <p className="input-holder">
+                            <label htmlFor="c">cccccc</label>
+                            <input
+                                type="number"
+                                step="0.05"
+                                max="0.1"
+                                min="-0.1"
+                                name=""
+                                id=""
+                                {...register("c", { required: true })}
+                            />
+                        </p>
+                        <p className="input-holder">
+                            <label htmlFor="d">ddddddd</label>
+                            <input
+                                type="number"
+                                step="0.05"
+                                max="0.1"
+                                min="-0.1"
+                                name=""
+                                id=""
+                                {...register("d", { required: true })}
+                            />
+                        </p>
+                    </div>
                     <p className="input-holder">
                         <input
                             type="submit"
