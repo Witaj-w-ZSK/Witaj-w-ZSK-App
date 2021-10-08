@@ -1,19 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import uczen from './../uczen_ZSK.png'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import useImage from "react-hook-image";
 
-const Card = ({props}) => {
+const Card = (props) => {
     return (
-        <div className='card'>
-            <p>Stało się właśnie nawiększa rzecz w szkole i nikt nie wie co to. co robisz?</p>
-            <img src={uczen} alt='Uczeń ZSK'/>
-            <p>Uczeń ZSK</p>
+        <div className="card">
+            <p>{props.quote}</p>
+            <img className="imageCard" src={props.image} alt={props.image} />
+            <p>{props.person}</p>
         </div>
     );
 };
 
 Card.propTypes = {
-
+    person: PropTypes.string.isRequired,
+    quote: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
 };
 
 export default Card;
