@@ -16,32 +16,19 @@ const Statistics = ({props}) => {
             <Statistic
                 name='teacher'
                 icon={<SupervisorAccountIconOutlined/>}
-                progress={teacherProgress}
-                onClick={() => {
-                    setTeacherProgress(0.3)
-                }}
-            />
+                progress={teacherProgress}/>
             <Statistic
                 name='student'
                 icon={<EmojiPeopleIconOutlined/>}
-                progress={studentProgress}
-                onClick={() => {
-                    setStudentProgress(1.00)
-                }}/>
+                progress={studentProgress}/>
             <Statistic
                 name='attendance'
                 icon={<CalendarTodayIconOutlined/>}
-                progress={attendanceProgress}
-                onClick={() => {
-                    setAttendanceProgress(0.7)
-                }}/>
+                progress={attendanceProgress}/>
             <Statistic
                 name='comfort'
                 icon={<EmojiEmotionsOutlinedIcon/>}
-                progress={comfortProgress}
-                onClick={() => {
-                    setComfortProgress(0.05)
-                }}/>
+                progress={comfortProgress}/>
         </div>
     );
 };

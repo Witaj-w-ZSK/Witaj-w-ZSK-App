@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Statistic = ({name, icon, progress, onClick}) => {
+const Statistic = ({name, icon, progress}) => {
     return (
-        <div className='statistic' onClick={onClick}>
+        <div className='statistic'>
             <div className='progress' style={{
                 height: 1 + progress * 79,
                 backgroundColor: ((progress < 0.1) || (progress > 0.9)) ? '#836333' : '#856c4d'
