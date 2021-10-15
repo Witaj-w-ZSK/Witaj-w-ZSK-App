@@ -1,27 +1,58 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Card from "./Card";
 import Statistics from "./Statistics";
-import useImage from "react-hook-image";
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-const Box = ({ props }) => {
-    const [person, setPerson] = useState("Uczen ZSK");
-    const [quote, setQuote] = useState(
-        "Stało się właśnie nawiększa rzecz w szkole i nikt nie wie co to."
-    );
-    const [image, setImage] = useState(
-        `${process.env.PUBLIC_URL}/images/uczen_ZSK.png`
-    );
-
+const Box = ({
+                 person,
+                 quote,
+                 image,
+                 teacherDiff,
+                 studentDiff,
+                 attendanceDiff,
+                 comfortDiff,
+                 teacherProgress,
+                 studentProgress,
+                 attendanceProgress,
+                 comfortProgress
+             }) => {
     return (
         <div className="box">
-            <Statistics />
-            <Card person={person} quote={quote} image={image} />
+            <Statistics
+                teacherDiff={teacherDiff}
+                studentDiff={studentDiff}
+                attendanceDiff={attendanceDiff}
+                comfortDiff={comfortDiff}
+                teacherProgress={teacherProgress}
+                studentProgress={studentProgress}
+                attendanceProgress={attendanceProgress}
+                comfortProgress={comfortProgress}
+            />
+            <Card person={person} quote={quote} image={image}/>
         </div>
     );
 };
 
-Box.propTypes = {};
+Box.propTypes = {
+    teacherDiff: PropTypes.number,
+    studentDiff: PropTypes.number,
+    attendanceDiff: PropTypes.number,
+    comfortDiff: PropTypes.number,
+    teacherProgress: PropTypes.number,
+    studentProgress: PropTypes.number,
+    attendanceProgress: PropTypes.number,
+    comfortProgress: PropTypes.number,
+};
+
+Box.defaultProps = {
+    teacherDiff: 0.0,
+    studentDiff: 0.0,
+    attendanceDiff: 0.0,
+    comfortDiff: 0.0,
+    teacherProgress: 0.5,
+    studentProgress: 0.5,
+    attendanceProgress: 0.5,
+    comfortProgress: 0.5,
+}
 
 export default Box;
