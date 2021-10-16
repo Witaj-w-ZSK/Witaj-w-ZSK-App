@@ -5,16 +5,18 @@ import CalendarTodayIconOutlined from '@mui/icons-material/CalendarTodayOutlined
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import PropTypes from "prop-types";
 
-const Statistics = ({
-                        teacherDiff,
-                        studentDiff,
-                        attendanceDiff,
-                        comfortDiff,
-                        teacherProgress,
-                        studentProgress,
-                        attendanceProgress,
-                        comfortProgress
-                    }) => {
+const Statistics = (
+    {
+        teacherDiff,
+        studentDiff,
+        attendanceDiff,
+        comfortDiff,
+        teacherProgress,
+        studentProgress,
+        attendanceProgress,
+        comfortProgress
+    }
+) => {
     return (
         <div className='statistics'>
             <Statistic

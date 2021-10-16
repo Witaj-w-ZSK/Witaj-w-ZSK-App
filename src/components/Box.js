@@ -3,19 +3,21 @@ import Card from "./Card";
 import Statistics from "./Statistics";
 import PropTypes from "prop-types";
 
-const Box = ({
-                 person,
-                 quote,
-                 image,
-                 teacherDiff,
-                 studentDiff,
-                 attendanceDiff,
-                 comfortDiff,
-                 teacherProgress,
-                 studentProgress,
-                 attendanceProgress,
-                 comfortProgress
-             }) => {
+const Box = (
+    {
+        person,
+        quote,
+        image,
+        teacherDiff,
+        studentDiff,
+        attendanceDiff,
+        comfortDiff,
+        teacherProgress,
+        studentProgress,
+        attendanceProgress,
+        comfortProgress
+    }
+) => {
     return (
         <div className="box">
             <Statistics
